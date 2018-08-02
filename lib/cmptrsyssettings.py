@@ -9,18 +9,11 @@ class Settings(object):
                     settings_file, encoding='utf-8-sig', mode='r') as f:
                 self.__dict__ = json.load(f, encoding='utf-8')
         except:
-            self.commands = ['!kilobytes',
-                             '!megabytes',
-                             '!gigabytes',
-                             '!terabytes',
-                             '!petabytes']
-            self.aliases = {
-                    self.commands[0]: ('!kilobyte', '!kb'),
-                    self.commands[1]: ('!megabyte', '!mb'),
-                    self.commands[2]: ('!gigabyte', '!gb'),
-                    self.commands[3]: ('!terabyte', '!tb'),
-                    self.commands[4]: ('!petabyte', '!pb')
-                    }
+            self.commands = [['!kilobytes', '!kilobyte', '!kb'],
+                             ['!megabytes', '!megabyte', '!mb'],
+                             ['!gigabytes', '!gigabyte', '!gb'],
+                             ['!terabytes', '!terabyte', '!tb'],
+                             ['!petabytes', '!petabyte', '!pb']]
 
     def Reload(self, json_data):
         self.__dict__ = json.loads(json_data, encoding='utf-8')
