@@ -1,0 +1,17 @@
+{
+    "output_file": "settings.json",
+    "commands": {
+        "type": "textbox",
+        "value": "['!kilobytes', '!megabytes', '!gigabytes', '!terabytes', '!petabytes']",
+        "label": "List of all valid commands",
+        "tooltip": "All valid comands",
+        "group": "General"
+    },
+    "aliases": {
+        "type": "textbox",
+        "value": "{'!kilobytes': ('!kilobyte', '!kb'), '!megabytes': ('!megabyte', '!mb'), '!gigabytes': ('!gigabyte', '!gb'), '!terabytes': ('!terabyte', '!tb'), '!petabytes': ('!petabyte', '!pb')}",
+        "label": "List of aliases",
+        "tooltip": "Shows aliases for each command",
+        "group": "General"
+    }
+}
