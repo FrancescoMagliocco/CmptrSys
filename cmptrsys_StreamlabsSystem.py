@@ -7,8 +7,7 @@ import clr
 clr.AddReference('IronPython.SQLite.dll')
 clr.AddReference('IronPython.Modules.dll')
 
-from cmptrsyssettings import CmptrSysScriptSettings
-from cmptrbytes import BytesSys
+from cmptrsyssettings import Settings
 
 ScriptName = 'CmptrSys'
 Website = 'https://Github.com/FrancescoMagliocco/CmptrSys'
@@ -19,34 +18,35 @@ Version = '0.0.0.1'
 global settings_file
 settings_file = ''
 
-global script_settings
-script_settings = CmptrSysScriptSettings()
+global settings
+settings = Settings()
 
 def Init():
     directory = os.path.join(os.path.dirname(__file__), 'settings')
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    settings_file = os.path.join(directory, 'cmptrsysscriptsettings.json')
-    script_settings = CmptrSysScriptSettings(settings_file)
-    BytesSys().Init(script_settings)
+    settings_file = os.path.join(directory, 'settings.json')
+    settings = Settings(settings_file)
+
+def is_command(command):
+    Parent.Log(ScriptName, str(settings.commands))
+    Parent.Log(ScriptName, str(settings.aliases))
+    return any(command in k or command in v for k, v in settings.aliases)
 
 def Execute(data):
-    if data.IsChatMessage():
-        Parent.Log(ScriptName, data.GetParam(0))
-
     if (data.IsChatMessage()
-            and data.GetParam(0).lower() in script_settings.commands):
+            and is_command(data.GetParam(0).lower())):
         Parent.Log(ScriptName, '{0} is a command.'.format(data.GetParam(0)))
 #            and not Parent.IsOnCooldown(ScriptName, script_settings.command)
 #            and Parent.HasPermission(
 #                data.User, script_settings.permission, script_settings.info)):
-        Parent.SendStreamMessage(script_settings.commands[data.GetParam(0).lower()](data))
+#        Parent.SendStreamMessage(script_settings.commands[data.GetParam(0).lower()](data))
 #        Parent.AddCooldown(
 #            ScriptName, script_settings.command, script_settings.cooldown)
 
 def Tick():
-    return
+    pass
 
 def Parse(parse_string, userid, username, targetid, target_name, message):
     if '$myparameter' in parse_string:
@@ -55,13 +55,12 @@ def Parse(parse_string, userid, username, targetid, target_name, message):
     return parse_string
 
 def ReloadSettings(json_data):
-    script_settings.__dict__ = json.loads(json_data)
-    script_settings.Save(settings_file)
+    settings.__dict__ = json.loads(json_data)
+    settings.Save(settings_file)
 
 def Unload():
     Parent.Log(ScriptName, 'Unloaded!')
-    script_settings.Save(settings_file)
-    BytesSys.bytes_settings.Save(BytesSys.bytes_settings_file)
+    settings.Save(settings_file)
 
 def ScriptToggled(state):
     Parent.Log(ScriptName, str(state))
