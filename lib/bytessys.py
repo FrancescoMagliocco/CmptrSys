@@ -4,7 +4,7 @@ def _get_user(data):
     return data.GetParam(1) if data.GetParamCount() > 1 else data.User
 
 def _get_username(data):
-    return data.GetParam(1) if data.getParamCount() > 1 else data.UserNamme
+    return data.GetParam(1) if data.GetParamCount() > 1 else data.UserNamme
 
 # TODO: Have all these activated in one class to minimize code.
 class KiloByte(CommandBase):
