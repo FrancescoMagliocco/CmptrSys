@@ -116,14 +116,14 @@
         "group": "!petabytes"
     },
     "pb_command": {
-        "type": "texpbox",
+        "type": "textbox",
         "value": "!petabytes",
         "label": "Petabyte command",
         "tooltip": "",
         "group": "!petabytes"
     },
     "pb_aliases": {
-        "type": "texpbox",
+        "type": "textbox",
         "value": "['!petabyte', '!pb']",
         "label": "Petabyte aliases",
         "tooltip": "",
