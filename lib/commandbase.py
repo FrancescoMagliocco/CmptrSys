@@ -15,6 +15,10 @@ class Commands:
 
     @classmethod
     def get_command(cls, cmd):
+        for k, v in cls.commands.items():
+            if cmd == k or cmd in v.alias:
+                return v
+
         return cls.commands[k if cmd == k or cmd in v.alias for k, v in cls.commands.items() else 'None']
 
 
