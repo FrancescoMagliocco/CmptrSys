@@ -1,17 +1,139 @@
 {
     "output_file": "settings.json",
-    "commands": {
-        "type": "textbox",
-        "value": "['!kilobytes', '!megabytes', '!gigabytes', '!terabytes', '!petabytes']",
-        "label": "List of all valid commands",
-        "tooltip": "All valid comands",
-        "group": "General"
+    "kb_enable": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Enable kilobytes",
+        "tooltip": "",
+        "group": "!kilobytes"
     },
-    "aliases": {
+    "kb_command": {
         "type": "textbox",
-        "value": "{'!kilobytes': ('!kilobyte', '!kb'), '!megabytes': ('!megabyte', '!mb'), '!gigabytes': ('!gigabyte', '!gb'), '!terabytes': ('!terabyte', '!tb'), '!petabytes': ('!petabyte', '!pb')}",
-        "label": "List of aliases",
-        "tooltip": "Shows aliases for each command",
-        "group": "General"
+        "value": "!kilobytes",
+        "label": "Kilobytes command",
+        "tooltip": "",
+        "group": "!kilobytes"
+    },
+    "kb_aliases": {
+        "type": "textbox",
+        "value": "['!kilobyte', '!kb']",
+        "label": "Kilobyte aliases",
+        "tooltip": "",
+        "group": "!kilobytes"
+    },
+    "kb_message": {
+        "type": "textbox",
+        "value": "'{0.UserName} has {1:f}KB'",
+        "label": "Output message",
+        "tooltip": "",
+        "group": "!kilobytes"},
+    "mb_enable": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Enable megabytes",
+        "tooltip": "",
+        "group": "!megabytes"
+    },
+    "mb_command": {
+        "type": "textbox",
+        "value": "!megabytes",
+        "label": "Megabyte command",
+        "tooltip": "",
+        "group": "!megabytes"
+    },
+    "mb_aliases": {
+        "type": "textbox",
+        "value": "['!megabyte', '!mb']",
+        "label": "Megabyte aliases",
+        "tooltip": "",
+        "group": "!megabytes"
+    },
+     "mb_message": {
+        "type": "textbox",
+        "value": "'{0.UserName} has {1:f}MB'",
+        "label": "Output message",
+        "tooltip": "",
+        "group": "!megabytes"},
+    "gb_enable": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Enable gigabytes",
+        "tooltip": "",
+        "group": "!gigabytes"
+    },
+    "gb_command": {
+        "type": "textbox",
+        "value": "!gigabytes",
+        "label": "Gigabyte command",
+        "tooltip": "",
+        "group": "!gigabytes"
+    },
+    "gb_aliases": {
+        "type": "textbox",
+        "value": "['!gigabyte', '!gb']",
+        "label": "Gigabyte aliases",
+        "tooltip": "",
+        "group": "!gigabytes"
+    },
+    "gb_message": {
+        "type": "textbox",
+        "value": "'{0.UserName} has {1:f}GB'",
+        "label": "Output message",
+        "tooltip": "",
+        "group": "!gigabytes"},
+    "tb_enable": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Enable terabytes",
+        "tooltip": "",
+        "group": "!terabytes"
+    },
+    "tb_command": {
+        "type": "textbox",
+        "value": "!terabytes",
+        "label": "Terabyte command",
+        "tooltip": "",
+        "group": "!terabytes"
+    },
+    "tb_aliases": {
+        "type": "textbox",
+        "value": "['!terabyte', '!tb']",
+        "label": "Terabyte aliases",
+        "tooltip": "",
+        "group": "!terabytes"
+    },
+    "tb_message": {
+        "type": "textbox",
+        "value": "'{0.UserName} has {1:f}TB'",
+        "label": "Output message",
+        "tooltip": "",
+        "group": "!terabytes"},
+    "pb_enable": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Enable petabytes",
+        "tooltip": "",
+        "group": "!petabytes"
+    },
+    "pb_command": {
+        "type": "texpbox",
+        "value": "!petabytes",
+        "label": "Petabyte command",
+        "tooltip": "",
+        "group": "!petabytes"
+    },
+    "pb_aliases": {
+        "type": "texpbox",
+        "value": "['!petabyte', '!pb']",
+        "label": "Petabyte aliases",
+        "tooltip": "",
+        "group": "!petabytes"
+    },
+    "pb_message": {
+        "type": "textbox",
+        "value": "'{0.UserName} has {1:f}PB'",
+        "label": "Output message",
+        "tooltip": "",
+        "group": "!petabytes"
     }
 }
