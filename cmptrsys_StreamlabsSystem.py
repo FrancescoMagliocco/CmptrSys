@@ -8,6 +8,8 @@ clr.AddReference('IronPython.SQLite.dll')
 clr.AddReference('IronPython.Modules.dll')
 
 from cmptrsyssettings import Settings
+from cmptrsysbase import CommandBase
+from bytessys import Kilobyte
 
 ScriptName = 'CmptrSys'
 Website = 'https://Github.com/FrancescoMagliocco/CmptrSys'
@@ -28,16 +30,20 @@ def Init():
 
     settings_file = os.path.join(directory, 'settings.json')
     settings = Settings(settings_file)
+    Kilobyte(settings)
 
-def is_command(command):
-    Parent.Log(ScriptName, str(settings.commands))
-    Parent.Log(ScriptName, str(settings.aliases))
-    return any(command in k or command in v for k, v in settings.aliases)
+    Parent.Log(ScriptName, CommandBase.get_command('!kb').command)
 
 def Execute(data):
     if (data.IsChatMessage()
-            and is_command(data.GetParam(0).lower())):
-        Parent.Log(ScriptName, '{0} is a command.'.format(data.GetParam(0)))
+            and CommandBase.is_command(data.GetParam(0).lower())):
+        cmd = CommandBase.get_command(data.GetParam(0).lower())
+
+        if (Parent.HasPermission(
+                data.User, cmd.permission, 'TODO:  Add Permission Info')
+                and not Parent.IsOnCooldown(ScriptName, cmd.command)):
+            cmd.execute(Parent, data)
+
 #            and not Parent.IsOnCooldown(ScriptName, script_settings.command)
 #            and Parent.HasPermission(
 #                data.User, script_settings.permission, script_settings.info)):
@@ -63,4 +69,4 @@ def Unload():
     settings.Save(settings_file)
 
 def ScriptToggled(state):
-    Parent.Log(ScriptName, str(state))
+    Parent.Log(ScriptName, 'Toggled: {0}'.format(str(state)))
