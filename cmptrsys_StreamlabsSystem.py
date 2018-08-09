@@ -17,18 +17,14 @@ Description = 'TBA'
 Creator = 'FrancescoMagliocco/Cmptr/CmptrGmr/CmptrGmrLIVE'
 Version = '0.0.0.1'
 
-global settings_file
-settings_file = ''
-
-global settings
-settings = Settings()
-
 def Init():
     directory = os.path.join(os.path.dirname(__file__), 'settings')
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+    global settings_file
     settings_file = os.path.join(directory, 'settings.json')
+    global settings
     settings = Settings(settings_file)
     # TODO: Implement the enabling of each metric
     KiloByte(settings)
