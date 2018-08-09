@@ -17,22 +17,22 @@ class Settings(object):
             self.mb_enable = True
             self.mb_command = '!megabytes'
             self.mb_aliases = ['!megabyte', '!mb']
-            self.kb_message = '{0.UserName} has {1:f}MB'
+            self.mb_message = '{0.UserName} has {1:f}MB'
 
             self.gb_enable = True
             self.gb_command = '!gigabytes'
             self.gb_aliases = ['!gigabyte', '!gb']
-            self.kb_message = '{0.UserName} has {1:f}GB'
+            self.gb_message = '{0.UserName} has {1:f}GB'
 
             self.tb_enable = True
             self.tb_command = '!terabytes'
             self.tb_aliases = ['!terabyte', '!tb']
-            self.kb_message = '{0.UserName} has {1:f}TB'
+            self.tb_message = '{0.UserName} has {1:f}TB'
 
             self.pb_enable = True
             self.pb_command = '!petabytes'
             self.pb_aliases = ['!petabyte', '!pb']
-            self.kb_message = '{0.UserName} has {1:f}PB'
+            self.pb_message = '{0.UserName} has {1:f}PB'
 
 
     def Reload(self, json_data):
