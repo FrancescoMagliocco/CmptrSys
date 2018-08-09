@@ -23,7 +23,7 @@
     },
     "kb_message": {
         "type": "textbox",
-        "value": "'{0.UserName} has {1:f}KB'",
+        "value": "'{0} has {1:f}KB'",
         "label": "Output message",
         "tooltip": "",
         "group": "!kilobytes"},
@@ -50,7 +50,7 @@
     },
      "mb_message": {
         "type": "textbox",
-        "value": "'{0.UserName} has {1:f}MB'",
+        "value": "'{0} has {1:f}MB'",
         "label": "Output message",
         "tooltip": "",
         "group": "!megabytes"},
@@ -77,7 +77,7 @@
     },
     "gb_message": {
         "type": "textbox",
-        "value": "'{0.UserName} has {1:f}GB'",
+        "value": "'{0} has {1:f}GB'",
         "label": "Output message",
         "tooltip": "",
         "group": "!gigabytes"},
@@ -104,7 +104,7 @@
     },
     "tb_message": {
         "type": "textbox",
-        "value": "'{0.UserName} has {1:f}TB'",
+        "value": "'{0} has {1:f}TB'",
         "label": "Output message",
         "tooltip": "",
         "group": "!terabytes"},
@@ -131,7 +131,7 @@
     },
     "pb_message": {
         "type": "textbox",
-        "value": "'{0.UserName} has {1:f}PB'",
+        "value": "'{0} has {1:f}PB'",
         "label": "Output message",
         "tooltip": "",
         "group": "!petabytes"

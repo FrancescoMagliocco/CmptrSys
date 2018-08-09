@@ -12,27 +12,27 @@ class Settings(object):
             self.kb_enable = True
             self.kb_command = '!kilobytes'
             self.kb_aliases = ['!kilobyte', '!kb']
-            self.kb_message = '{0.UserName} has {1:f}KB'
+            self.kb_message = '{0} has {1:f}KB'
 
             self.mb_enable = True
             self.mb_command = '!megabytes'
             self.mb_aliases = ['!megabyte', '!mb']
-            self.mb_message = '{0.UserName} has {1:f}MB'
+            self.mb_message = '{0} has {1:f}MB'
 
             self.gb_enable = True
             self.gb_command = '!gigabytes'
             self.gb_aliases = ['!gigabyte', '!gb']
-            self.gb_message = '{0.UserName} has {1:f}GB'
+            self.gb_message = '{0} has {1:f}GB'
 
             self.tb_enable = True
             self.tb_command = '!terabytes'
             self.tb_aliases = ['!terabyte', '!tb']
-            self.tb_message = '{0.UserName} has {1:f}TB'
+            self.tb_message = '{0} has {1:f}TB'
 
             self.pb_enable = True
             self.pb_command = '!petabytes'
             self.pb_aliases = ['!petabyte', '!pb']
-            self.pb_message = '{0.UserName} has {1:f}PB'
+            self.pb_message = '{0} has {1:f}PB'
 
 
     def Reload(self, json_data):
@@ -47,7 +47,7 @@ class Settings(object):
             with codecs.open(settings_file.replace('json', 'js'),
                              encoding='utf-8-sig',
                              mode='w+') as f:
-                f.write('var settings = {0.UserName};'.format(
+                f.write('var settings = {0};'.format(
                     json.dumps(self.__dict__, encoding='utf-8')))
         except:
             pass
