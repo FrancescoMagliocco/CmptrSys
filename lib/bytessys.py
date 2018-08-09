@@ -1,6 +1,13 @@
 from cmptrsysbase import CommandBase
+
+def _get_user(data):
+    return data.GetParam(1) if data.GetParamCount() > 1 else data.User
+
+def _get_username(data):
+    return data.GetParam(1) if data.getParamCount() > 1 else data.UserNamme
+
 # TODO: Have all these activated in one class to minimize code.
-class Kilobyte(CommandBase):
+class KiloByte(CommandBase):
     def __init__(self, settings):
         CommandBase.__init__(self,
                              settings.kb_command,
@@ -9,9 +16,10 @@ class Kilobyte(CommandBase):
 
     def execute(self, Parent, data):
         Parent.SendStreamMessage(self.message.format(
-            data, float(Parent.GetPoints(data.User)) / 1024))
+            _get_username(data),
+            float(Parent.GetPoints(_get_user(data))) / 1024))
 
-class Megabyte(CommandBase):
+class MegaByte(CommandBase):
     def __init__(self, settings):
         CommandBase.__init__(self,
                              settings.mb_command,
@@ -20,9 +28,10 @@ class Megabyte(CommandBase):
 
     def execute(self, Parent, data):
         Parent.SendStreamMessage(self.message.format(
-            data, float(Parent.GetPoints(data.User)) / 1048576))
+            _get_username(data),
+            float(Parent.GetPoints(_get_user(data))) / 1048576))
 
-class Gigabyte(CommandBase):
+class GigaByte(CommandBase):
     def __init__(self, settings):
         CommandBase.__init__(self,
                              settings.gb_command,
@@ -31,9 +40,10 @@ class Gigabyte(CommandBase):
 
     def execute(self, Parent, data):
         Parent.SendStreamMessage(self.message.format(
-            data, float(Parent.GetPoints(data.User)) / 1073741824))
+            _get_username(data),
+            float(Parent.GetPoints(_get_user(data))) / 1073741824))
 
-class Terabyte(CommandBase):
+class TeraByte(CommandBase):
     def __init__(self, settings):
         CommandBase.__init__(self,
                              settings.tb_command,
@@ -42,9 +52,10 @@ class Terabyte(CommandBase):
 
     def execute(self, Parent, data):
         Parent.SendStreamMessage(self.message.format(
-            data, float(Parent.GetPoints(data.User)) / 1099511627776))
+            _get_username(data),
+            float(Parent.GetPoints(_get_user(data))) / 1099511627776))
 
-class Petabyte(CommandBase):
+class PetaByte(CommandBase):
     def __init__(self, settings):
         CommandBase.__init__(self,
                              settings.pb_command,
@@ -53,4 +64,5 @@ class Petabyte(CommandBase):
 
     def execute(self, Parent, data):
         Parent.SendStreamMessage(self.message.format(
-            data, float(Parent.GetPoints(data.User)) / 1125899906842624))
+            _get_username(data),
+            float(Parent.GetPoints(_get_user(data))) / 1125899906842624))
