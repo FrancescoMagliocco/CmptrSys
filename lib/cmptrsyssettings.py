@@ -1,4 +1,3 @@
-import os
 import codecs
 import json
 
@@ -51,4 +50,3 @@ class Settings(object):
                     json.dumps(self.__dict__, encoding='utf-8')))
         except:
             pass
-#            Parent.Log(ScriptName, 'Failed to save settings file')
