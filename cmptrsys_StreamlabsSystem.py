@@ -9,7 +9,7 @@ clr.AddReference('IronPython.Modules.dll')
 
 from cmptrsyssettings import Settings
 from cmptrsysbase import CommandBase
-from bytessys import Kilobyte
+from bytessys import KiloByte, MegaByte, GigaByte, TeraByte, PetaByte
 
 ScriptName = 'CmptrSys'
 Website = 'https://Github.com/FrancescoMagliocco/CmptrSys'
@@ -30,7 +30,13 @@ def Init():
 
     settings_file = os.path.join(directory, 'settings.json')
     settings = Settings(settings_file)
-    Kilobyte(settings)
+    # TODO: Implement the enabling of each metric
+    KiloByte(settings)
+    MegaByte(settings)
+    GigaByte(settings)
+    TeraByte(settings)
+    PetaByte(settings)
+
 
     Parent.Log(ScriptName, CommandBase.get_command('!kb').command)
 
