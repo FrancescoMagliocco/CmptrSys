@@ -9,7 +9,7 @@ clr.AddReference('IronPython.Modules.dll')
 
 from cmptrsyssettings import Settings
 from cmptrsysbase import CommandBase
-from bytessys import KiloByte, MegaByte, GigaByte, TeraByte, PetaByte
+from bytessys import KiloByte, MegaByte, GigaByte, TeraByte
 
 ScriptName = 'CmptrSys'
 Website = 'https://Github.com/FrancescoMagliocco/CmptrSys'
@@ -23,7 +23,7 @@ def Init():
         os.makedirs(directory)
 
     global settings_file
-    settings_file = os.path.join(directory, 'settings.json')
+    settings_file = os.path.join(__file__, 'settings.json')
     global settings
     settings = Settings(settings_file)
     # TODO: Implement the enabling of each metric
@@ -31,10 +31,8 @@ def Init():
     MegaByte(settings)
     GigaByte(settings)
     TeraByte(settings)
-    PetaByte(settings)
-
-
-    Parent.Log(ScriptName, CommandBase.get_command('!kb').command)
+    # FIXME: 'pb_command' is not found
+#    PetaByte(settings)
 
 def Execute(data):
     if (data.IsChatMessage()
@@ -46,10 +44,6 @@ def Execute(data):
                 and not Parent.IsOnCooldown(ScriptName, cmd.command)):
             cmd.execute(Parent, data)
 
-#            and not Parent.IsOnCooldown(ScriptName, script_settings.command)
-#            and Parent.HasPermission(
-#                data.User, script_settings.permission, script_settings.info)):
-#        Parent.SendStreamMessage(script_settings.commands[data.GetParam(0).lower()](data))
 #        Parent.AddCooldown(
 #            ScriptName, script_settings.command, script_settings.cooldown)
 
@@ -64,11 +58,9 @@ def Parse(parse_string, userid, username, targetid, target_name, message):
 
 def ReloadSettings(json_data):
     settings.__dict__ = json.loads(json_data)
-    settings.Save(settings_file)
 
 def Unload():
     Parent.Log(ScriptName, 'Unloaded!')
-    settings.Save(settings_file)
 
 def ScriptToggled(state):
     Parent.Log(ScriptName, 'Toggled: {0}'.format(str(state)))
